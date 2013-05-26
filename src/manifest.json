@@ -1,0 +1,36 @@
+{
+    "name": "ECD COMBO TOOL",
+    "version": "2.0",
+    "permissions": [
+        "tabs",
+        "storage",
+        "http://*.44ux.com/*",
+        "http://buy.qq.com/*",
+        "http://www.paipai.com/*",
+        "http://static.paipaiimg.com/*",
+        "http://*.paipai.com/*"
+    ],
+    "background": {
+        "scripts": ["jquery.js", "background.js"]
+    },
+    "browser_action": {
+        "default_icon": {
+            "19": "images/icon19.png",
+            "38": "images/icon38.png"
+        },
+        "default_title": "ECD COMBO TOOL",
+        "default_popup": "popup.html"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "http://buy.qq.com/*",
+                "http://static.paipaiimg.com/*",
+                "http://www.paipai.com/*",
+                "http://*.paipai.com/*"
+            ],
+            "js": ["content_script.js"]
+        }
+    ],
+    "manifest_version": 2
+}
