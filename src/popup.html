@@ -11,6 +11,8 @@
         }
         .wrap h1{
             font-size: 14px;
+            white-space: nowrap;
+            font-family: tahoma;
         }
         .update_list {
             list-style: none;
@@ -51,9 +53,9 @@
 </head>
 <body>
 <div class="wrap">
-    <h1>请选择需要更新的文件</h1>
+    <h1>PLEASE SELECT FILE TO UPDATE:</h1>
     <ul id="updateList" class="update_list">
-        <li id="getList" title="非网购页面或页面加载未完成">NO COMBO FILES FOUND (YET)</li>
+        <li id="getList" title="NOT QQBUY PAGE OR NOT LOADED YET, TRY F5">NO COMBO FILES FOUND (YET)</li>
     </ul>
     <button type="button" id="update">UPDATE SELECTED</button>
 </div>

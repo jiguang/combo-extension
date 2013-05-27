@@ -49,7 +49,7 @@ chrome.runtime.onMessage.addListener(
 
 // 键盘快捷键，重复上一次操作
 document.addEventListener('keyup', function(e){
-    if(e.shiftKey && e.keyCode == '220'){
+    if(e.altKey && e.keyCode == '82'){
         chrome.runtime.sendMessage({action: "updateLast"}, function(response) {
             console.log(response.status);
         });
