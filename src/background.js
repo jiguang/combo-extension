@@ -5,7 +5,7 @@
  * @date 2013-05-24
  */
 
-var api = 'http://44ux.com/wp-content/api.php';
+var api = 'http://ppms.paipaioa.com/php/combo_ssi.php';
 var storage = chrome.storage.local;
 
 // 通过与当前tab通讯，获取当前页的 combo 文件信息
