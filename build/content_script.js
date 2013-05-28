@@ -47,20 +47,16 @@ chrome.runtime.onConnect.addListener(function(port) {
 });
 
 // 键盘快捷键，重复上一次操作
-var key_event_timer;
-document.addEventListener('keyup', function(e){
+document.addEventListener('keydown', function(e){
     // Alt + R
     if(e.altKey && e.keyCode == '82'){
-        clearTimeout(key_event_timer);
-        key_event_timer = setTimeout(function(){
-            var port = chrome.runtime.connect({name: "combo_ext_cnt"});
-                port.postMessage({action: "updateLast"});
-                port.onMessage.addListener(function(msg) {
-                    if (msg.status == "ok"){
-                        console.log('update completed');
-                    }
-                });
-        }, 50);
+        var port = chrome.runtime.connect({name: "combo_ext_cnt"});
+            port.postMessage({action: "updateLast"});
+            port.onMessage.addListener(function(msg) {
+                if (msg.status == "ok"){
+                    console.log('update completed');
+                }
+            });
     }
 });
 
