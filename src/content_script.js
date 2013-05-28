@@ -44,16 +44,21 @@ chrome.runtime.onMessage.addListener(
                 combofile: json
             });
         }
+        return true;
     }
 );
 
 // 键盘快捷键，重复上一次操作
+var key_event_timer;
 document.addEventListener('keyup', function(e){
     // Alt + R
     if(e.altKey && e.keyCode == '82'){
-        chrome.runtime.sendMessage({action: "updateLast"}, function(response) {
-            console.log(response.status);
-        });
+        clearTimeout(key_event_timer);
+        key_event_timer = setTimeout(function(){
+            chrome.runtime.sendMessage({action: "updateLast"}, function(response) {
+                console.log(response.status);
+            });
+        }, 300);
     }
 });
 

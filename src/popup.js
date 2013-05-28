@@ -23,7 +23,7 @@ $(function(){
             var tempNode;
             var $updateList = $('#updateList');
 
-            if(combofile.fileName && combofile.comboLinks.length > 0){
+            if(combofile && combofile.fileName && combofile.comboLinks.length > 0){
                 $updateList.empty();
 
                 for(var i = 0, j = combofile.comboLinks.length; i<j; i++){

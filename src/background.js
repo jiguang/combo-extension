@@ -11,8 +11,8 @@ var storage = chrome.storage.local;
 // 通过与当前tab通讯，获取当前页的 combo 文件信息
 // 页面刷新后只能获取一次，没有保存长连接
 function getCurrentComboFile(callback){
-    chrome.tabs.getSelected(null, function(tab) {
-        chrome.tabs.sendMessage(tab.id, {action: "get"}, callback );
+    chrome.tabs.query({active:true}, function(tab) {
+        chrome.tabs.sendMessage(tab[0].id, {action: "get"}, callback);
     });
 }
 
@@ -28,8 +28,8 @@ function update(combofile, callback){
             }
 
             // 完成后刷新
-            chrome.tabs.getSelected(null, function(tab) {
-                chrome.tabs.reload();
+            chrome.tabs.query({active:true}, function(tab) {
+                chrome.tabs.reload(tab[0].id);
             });
 
         });
@@ -60,6 +60,7 @@ chrome.runtime.onMessage.addListener(
                 });
             });
         }
+        return true;
     });
 
 

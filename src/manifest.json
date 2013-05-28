@@ -30,7 +30,8 @@
                 "http://www.paipai.com/*",
                 "http://*.paipai.com/*"
             ],
-            "js": ["content_script.js"]
+            "js": ["content_script.js"],
+            "run_at": "document_end"
         }
     ],
     "manifest_version": 2
