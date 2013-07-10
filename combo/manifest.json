@@ -7,7 +7,7 @@
         "http://*.44ux.com/*",
         "http://ppms.paipaioa.com/*",
         "http://buy.qq.com/*",
-        "http://www.paipai.com/*",
+        "http://*.wanggou.com/*",
         "http://static.paipaiimg.com/*",
         "http://*.paipai.com/*"
     ],
@@ -26,8 +26,8 @@
         {
             "matches": [
                 "http://buy.qq.com/*",
+                "http://*.wanggou.com/*",
                 "http://static.paipaiimg.com/*",
-                "http://www.paipai.com/*",
                 "http://*.paipai.com/*"
             ],
             "js": ["content_script.js"],
