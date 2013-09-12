@@ -6,49 +6,18 @@
     <script type="text/javascript" src="jquery.js"></script>
     <script type="text/javascript" src="popup.js"></script>
     <style type="text/css">
-        .wrap{
-            padding: 0 5px;
-        }
-        .wrap h1{
-            font-size: 14px;
-            white-space: nowrap;
-            font-family: tahoma;
-        }
-        .update_list {
-            list-style: none;
-            margin: 0 0 10px;
-            padding: 0;
-            max-height: 500px;
-        }
-        .update_list li {
-            min-width: 200px;
-            cursor: pointer;
-            padding: 0 10px;
-            margin-bottom: 2px;
-            white-space: nowrap;
-            font: 14px/22px "courier new";
-            color: #333;
-            background-color: #f7f7f7;
-            /*-webkit-user-select: none; 保留选择文本功能，用于快速发布*/
-        }
-        .update_list li:hover{
-            background-color: #f0f0f0;
-        }
-        .update_list li.checked {
-            background-color: #d70000;
-            color: #fff;
-        }
-        #update {
-            display: block;
-            width: 100%;
-            line-height: 18px;
-            outline: none;
-            cursor: pointer;
-        }
-        #getList:hover{
-            background-color: #f7f7f7;
-            cursor: default;
-        }
+        .wrap{ padding: 0 5px; }
+        .wrap h1{ font-size: 14px; white-space: nowrap; font-family: tahoma; }
+        .update_list { list-style: none; margin: 0 0 10px; padding: 0; max-height: 500px; }
+        .update_list li { min-width: 200px; cursor: pointer; padding: 0 10px; margin-bottom: 2px; white-space: nowrap; font: 14px/22px "courier new"; color: #333; background-color: #f7f7f7; }
+        .update_list li:hover{ background-color: #f0f0f0; }
+        .update_list li.checked { background-color: #d70000; color: #fff; }
+        #update { display: block; width: 100%; line-height: 18px; outline: none; cursor: pointer; }
+        #getList:hover{ background-color: #f7f7f7; cursor: default; }
+        .mode_switch{ margin-left: -4px; overflow: hidden; }
+        .mode_switch label{float: left; font: 12px/1.5em tahoma; padding: 6px 0; margin-right: 15px; cursor: pointer; -webkit-user-select: none;}
+        .mode_switch label:hover{color: #d70000;}
+        .mode_switch input[type="radio"]{ margin-right: 5px; vertical-align: -2px; cursor: pointer;}
     </style>
 </head>
 <body>
@@ -57,6 +26,10 @@
     <ul id="updateList" class="update_list">
         <li id="getList" title="NOT QQBUY PAGE OR NOT LOADED YET, TRY F5">NO COMBO FILES FOUND (YET)</li>
     </ul>
+    <!--<div class="mode_switch">-->
+        <!--<label for="mode_combo"><input type="radio" name="mode" id="mode_combo">COMBO MODE</label> -->
+        <!--<label for="mode_split"><input type="radio" name="mode" id="mode_split">SPLIT MODE</label> -->
+    <!--</div>-->
     <button type="button" id="update" title="HOT KEY: [ALT + R] TO UPDATE CURRENT PAGE">UPDATE SELECTED (ALT+R REDO)</button>
 </div>
 </body>
