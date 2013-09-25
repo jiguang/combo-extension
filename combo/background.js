@@ -10,14 +10,16 @@ var storage = chrome.storage.local;
 
 // 通过与当前tab通讯，获取当前页的 combo 文件信息
 function getCurrentComboFile(callback){
-    chrome.tabs.query({active:true}, function(tab) {
+    chrome.tabs.query({active:true,windowId: chrome.windows.WINDOW_ID_CURRENT}, function(tab) {
+
         var port = chrome.tabs.connect(tab[0].id, {name: "combo_ext_cnt"});
-        port.postMessage({action: "get"});
+
         port.onMessage.addListener(function(msg) {
             if (msg.status == "ok" && typeof callback == 'function'){
                 callback(msg);
             }
         });
+        port.postMessage({action: "get"});
     });
 }
 
@@ -33,7 +35,7 @@ function update(combofile, callback){
             }
 
             // 完成后刷新
-            chrome.tabs.query({active:true}, function(tab) {
+            chrome.tabs.query({active:true,windowId: chrome.windows.WINDOW_ID_CURRENT}, function(tab) {
                 chrome.tabs.reload(tab[0].id);
             });
 
