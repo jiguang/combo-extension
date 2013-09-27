@@ -8,15 +8,15 @@
 $(function(){
 
     var background = chrome.extension.getBackgroundPage();
+    var combofile;
 
+    // update
     background.getCurrentComboFile(function(data){
 
-        var combofile;
         try{
             combofile = JSON.parse(data.combofile);
         }catch(e){}
 
-        // 生成待更新文件列表
         function generateUpdateList(){
             var template = '<li>{{path}}</li>';
             var tempNode;
@@ -32,7 +32,6 @@ $(function(){
             }
         }
 
-        // 获取待更新文件列表
         function getUpdateList(){
             var $updateList = $('#updateList');
             var updateList = [];
@@ -46,7 +45,6 @@ $(function(){
             return updateList.join(',');
         }
 
-        // 生成待更新的文件列表
         generateUpdateList();
 
         $('#updateList').find('li').click(function(){
@@ -60,6 +58,25 @@ $(function(){
             });
         }) ;
     });
+
+    // open combo tool
+    $('#combo_tool').click(function(){
+
+        background.getCurrentComboFile(function(data){
+
+            var url = "http://ppms.paipaioa.com/combo/index.html";
+            var combostring = '<link combofile="'+combofile.fileName +'" href="'+ combofile.comboLinks.join('')+'" />';
+
+            try{
+                chrome.tabs.create({
+                    active: true,
+                    url: url +'?str='+ encodeURIComponent(combostring)
+                });
+            }catch(e){}
+
+        });
+    });
+
 
 });
 

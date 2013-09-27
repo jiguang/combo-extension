@@ -9,10 +9,10 @@
         .wrap{ padding: 0 5px; }
         .wrap h1{ font-size: 14px; white-space: nowrap; font-family: tahoma; }
         .update_list { list-style: none; margin: 0 0 10px; padding: 0; max-height: 500px; }
-        .update_list li { min-width: 200px; cursor: pointer; padding: 0 10px; margin-bottom: 2px; white-space: nowrap; font: 14px/22px "courier new"; color: #333; background-color: #f7f7f7; }
+        .update_list li { min-width: 240px; cursor: pointer; padding: 0 10px; margin-bottom: 2px; white-space: nowrap; font: 14px/22px "courier new"; color: #333; background-color: #f7f7f7; }
         .update_list li:hover{ background-color: #f0f0f0; }
         .update_list li.checked { background-color: #d70000; color: #fff; }
-        #update { display: block; width: 100%; line-height: 18px; outline: none; cursor: pointer; }
+        button{display: inline-block; line-height: 18px; margin-right: 5px; outline: none; cursor: pointer;}
         #getList:hover{ background-color: #f7f7f7; cursor: default; }
         .mode_switch{ margin-left: -4px; overflow: hidden; }
         .mode_switch label{float: left; font: 12px/1.5em tahoma; padding: 6px 0; margin-right: 15px; cursor: pointer; -webkit-user-select: none;}
@@ -30,7 +30,8 @@
         <!--<label for="mode_combo"><input type="radio" name="mode" id="mode_combo">COMBO MODE</label> -->
         <!--<label for="mode_split"><input type="radio" name="mode" id="mode_split">SPLIT MODE</label> -->
     <!--</div>-->
-    <button type="button" id="update" title="HOT KEY: [ALT + R] TO UPDATE CURRENT PAGE">UPDATE SELECTED (ALT+R REDO)</button>
+    <button type="button" id="update" title="HOT KEY: [ALT + R] TO UPDATE CURRENT PAGE">UPDATE (ALT+R REDO)</button>
+    <button type="button" id="combo_tool" title="OPEN IN COMBO TOOL">COMBO TOOL</button>
 </div>
 </body>
 </html>

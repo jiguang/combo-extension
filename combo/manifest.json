@@ -27,6 +27,7 @@
             "matches": [
                 "http://buy.qq.com/*",
                 "http://*.wanggou.com/*",
+                "http://ppms.paipaioa.com/*",
                 "http://static.paipaiimg.com/*",
                 "http://*.paipai.com/*"
             ],
