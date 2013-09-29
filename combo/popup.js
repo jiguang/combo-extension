@@ -65,7 +65,11 @@ $(function(){
         background.getCurrentComboFile(function(data){
 
             var url = "http://ppms.paipaioa.com/combo/index.html";
-            var combostring = '<link combofile="'+combofile.fileName +'" href="'+ combofile.comboLinks.join('')+'" />';
+            var combostring = '<link combofile="'+combofile.fileName
+                +'" href="http://static.paipaiimg.com/c/='
+                + combofile.comboLinks.join(',')
+                +'?t=' +(+new Date)
+                +'" />';
 
             try{
                 chrome.tabs.create({
