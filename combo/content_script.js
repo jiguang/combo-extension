@@ -12,9 +12,10 @@ chrome.runtime.onConnect.addListener(function(port) {
 
         var links = document.querySelectorAll('link');
         var comboLinkReg = /.*?\/c\/=(.*?)\?t=[\s\S]*/ig;
-        var combofile = [];
+        var combo_list = [];
+        var combo_file;
+        var dev_path;
         var fileName = '';
-        var json;
 
         // 获取 combo 地址中的全部文件列表
         for( var i = 0, j = links.length; i < j; i++){
@@ -25,9 +26,14 @@ chrome.runtime.onConnect.addListener(function(port) {
             // 需在正式工具中处理，且大多数情况下不需要更新，故不必列出
             if(fileName != null && fileName != 'common/global.shtml'){
 
+                // 针对每个 combo 文件单独判断环境，目前只有 v5 和 qqbuy
+                // 不允许手动切换环境，不允许混搭
+                dev_path = links[i].href.indexOf('/v5/') != -1 ? 'v5' : 'qqbuy';
+
                 // 此处用数组是为了兼容后续多个文件的情况
-                combofile.push({
+                combo_list.push({
                     fileName: fileName,
+                    devPath: dev_path,
                     comboLinks: links[i].href.replace(comboLinkReg, "$1").split(',')
                 });
             }
@@ -35,12 +41,12 @@ chrome.runtime.onConnect.addListener(function(port) {
 
         // 目前 api 只支持更新单个 combo 文件
         // 原则上也应该只有一个 combo 文件，故只取数组第一项
-        json = JSON.stringify(combofile[0]);
+        combo_file = JSON.stringify(combo_list[0]);
 
         if (msg.action == "get"){
             port.postMessage({
                 status: "ok",
-                combofile: json
+                combo_file: combo_file
             });
         }
 

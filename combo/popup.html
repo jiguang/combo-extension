@@ -7,9 +7,9 @@
     <script type="text/javascript" src="popup.js"></script>
     <style type="text/css">
         .wrap{ padding: 0 5px; }
-        .wrap h1{ min-width: 240px; font-size: 14px; white-space: nowrap; font-family: tahoma; }
+        .wrap h1{ min-width: 300px; font-size: 14px; white-space: nowrap; font-family: tahoma; }
         .update_list { list-style: none; margin: 0 0 10px; padding: 0; max-height: 500px; }
-        .update_list li { min-width: 240px; cursor: pointer; padding: 0 10px; margin-bottom: 2px; white-space: nowrap; font: 14px/22px "courier new"; color: #333; background-color: #f7f7f7; }
+        .update_list li { min-width: 300px; cursor: pointer; padding: 0 10px; margin-bottom: 2px; white-space: nowrap; font: 14px/22px "courier new"; color: #333; background-color: #f7f7f7; }
         .update_list li:hover{ background-color: #f0f0f0; }
         .update_list li.checked { background-color: #d70000; color: #fff; }
         button{display: inline-block; line-height: 18px; margin-right: 5px; outline: none; cursor: pointer;}
@@ -18,11 +18,12 @@
         .mode_switch label{float: left; font: 12px/1.5em tahoma; padding: 6px 0; margin-right: 15px; cursor: pointer; -webkit-user-select: none;}
         .mode_switch label:hover{color: #d70000;}
         .mode_switch input[type="radio"]{ margin-right: 5px; vertical-align: -2px; cursor: pointer;}
+        #cur_env{ margin-left: 5px; font: normal normal 12px arial; background-color: #d70000; color: #fff; padding: 1px 5px; border-radius: 2px; -webkit-user-select:none;}
     </style>
 </head>
 <body>
 <div class="wrap">
-    <h1>PLEASE SELECT FILE(S) TO UPDATE:</h1>
+    <h1>PLEASE SELECT FILE(S) TO UPDATE: <i id="cur_env" title="注意：不能混搭 QQBUY 和 V5 目录的文件">QQBUY</i></h1>
     <ul id="updateList" class="update_list">
         <li id="getList" title="NOT QQBUY PAGE OR NOT LOADED YET, TRY F5">NO COMBO FILES FOUND (YET)</li>
     </ul>
@@ -30,7 +31,7 @@
         <!--<label for="mode_combo"><input type="radio" name="mode" id="mode_combo">COMBO MODE</label> -->
         <!--<label for="mode_split"><input type="radio" name="mode" id="mode_split">SPLIT MODE</label> -->
     <!--</div>-->
-    <button type="button" id="update" title="HOT KEY: [ALT + R] TO UPDATE CURRENT PAGE">UPDATE (ALT+R REDO)</button>
+    <button type="button" id="update" title="HOT KEY: [ALT + R] TO UPDATE CURRENT PAGE" style="display: none;">UPDATE (ALT+R REDO)</button>
     <button type="button" id="combo_tool" title="OPEN IN COMBO TOOL">COMBO TOOL</button>
 </div>
 </body>
