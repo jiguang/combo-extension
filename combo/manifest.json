@@ -35,5 +35,10 @@
             "run_at": "document_end"
         }
     ],
+    "icons": {
+        "19": "images/icon19.png",
+        "38": "images/icon38.png",
+        "128": "images/icon128.png"
+    },
     "manifest_version": 2
 }
