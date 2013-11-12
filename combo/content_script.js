@@ -24,7 +24,7 @@ chrome.runtime.onConnect.addListener(function(port) {
 
             // 忽略 global.shtml，全局样式不应草率操作
             // 需在正式工具中处理，且大多数情况下不需要更新，故不必列出
-            if(fileName != null && fileName != 'common/global.shtml'){
+            if(fileName != null && fileName.indexOf('global.shtml') == -1){
 
                 // 针对每个 combo 文件单独判断环境，目前只有 v5 和 qqbuy
                 // 不允许手动切换环境，不允许混搭
