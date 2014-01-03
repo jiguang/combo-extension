@@ -16,6 +16,7 @@ chrome.runtime.onConnect.addListener(function(port) {
         var combo_file;
         var dev_path;
         var fileName = '';
+        var envArray = ['qqbuy', 'v5', 'wx'];
 
         // 获取 combo 地址中的全部文件列表
         for( var i = 0, j = links.length; i < j; i++){
@@ -26,9 +27,13 @@ chrome.runtime.onConnect.addListener(function(port) {
             // 需在正式工具中处理，且大多数情况下不需要更新，故不必列出
             if(fileName != null && fileName.indexOf('global.shtml') == -1){
 
-                // 针对每个 combo 文件单独判断环境，目前只有 v5 和 qqbuy
                 // 不允许手动切换环境，不允许混搭
-                dev_path = links[i].href.indexOf('/v5/') != -1 ? 'v5' : 'qqbuy';
+                for(var m = 0, n = envArray.length; m<n; m++){
+                    if(links[i].href.indexOf('/'+envArray[m]+'/') != -1){
+                        dev_path = envArray[m];
+                        break;
+                    }
+                }
 
                 // 此处用数组是为了兼容后续多个文件的情况
                 combo_list.push({
