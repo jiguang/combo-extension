@@ -16,7 +16,7 @@ chrome.runtime.onConnect.addListener(function(port) {
         var combo_file;
         var dev_path;
         var fileName = '';
-        var envArray = ['qqbuy', 'v5', 'wx'];
+        var envArray = ['qqbuy', 'v5', 'wx', 'qq'];
 
         // 获取 combo 地址中的全部文件列表
         for( var i = 0, j = links.length; i < j; i++){

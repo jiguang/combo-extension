@@ -1,9 +1,10 @@
 {
-    "name": "ECD COMBO TOOL",
-    "version": "3.6",
+    "name": "CSS COMBO TOOL",
+    "version": "3.8",
     "permissions": [
         "tabs",
         "storage",
+		"http://*.diao.it/*",
         "http://*.44ux.com/*",
         "http://ppms.paipaioa.com/*",
         "http://buy.qq.com/*",
@@ -19,7 +20,7 @@
             "19": "images/icon19.png",
             "38": "images/icon38.png"
         },
-        "default_title": "ECD COMBO TOOL",
+        "default_title": "CSS COMBO TOOL",
         "default_popup": "popup.html"
     },
     "content_scripts": [
